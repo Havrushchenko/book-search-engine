@@ -1,14 +1,11 @@
-const { User } = require('../models/User');
+const { User } = require('../models/');
 
 const resolvers = {
-    User: {
-      username: () => {
-        return 'Volodya';
-      },
-      email: () => {
-        return 'Volodya';
+    Mutation: {
+        addUser: async (parent, { username, email, password }) => {
+            return await User.create({ username, email, password });
+          },
       }
-    }
   };
   
   module.exports = resolvers;
